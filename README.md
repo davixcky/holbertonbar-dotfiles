@@ -1,7 +1,8 @@
-# Vim config - Basic
-This config is created by *Sumeru Chatterjee*
+# Terminal Configuration - Basic
+This config is created by Holberton Barranquilla Students
 
 # Install
-  1. `git clone https://github.com/davixcky/vim-config.git ~/.dotfiles`
-  2. `source ~/.dotfiles/bootstrap.sh`
-  3. `Welcome to vim`
+  1. `git clone https://github.com/davixcky/holbertonbar-dotfiles.git 
+  2  `cd holbertonbar-dotfiles`
+  2. `./bootstrap.sh`
+  3. `Open a new terminal and enjoy`
