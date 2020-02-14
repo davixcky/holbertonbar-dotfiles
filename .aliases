@@ -2,3 +2,6 @@
 
 #Gcc with all warnings
 alias gccw="gcc -Wall -Wall -Werror -Wextra -pedantic"
+
+#Ls with color
+alias ls="ls --color=tty"
