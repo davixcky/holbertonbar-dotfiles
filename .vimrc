@@ -96,6 +96,12 @@ noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
+" Add a new line before {
+function! SpaceBeforeLeftParen()
+	:silent! %s/\(\s\+\)\@<!{/\r{/
+	:g/^\s*$/d
+endfunction
+
 " Automatic commands
 if has("autocmd")
 	" Enable file type detection
@@ -110,6 +116,8 @@ if has("autocmd")
 	autocmd BufWritePre *.c,*.py :normal gg=G
 	"Trim blank lines in the end of file
 	autocmd BufWritePre *.c,*.py $put _ | $;?\(^\s*$\)\@!?+2,$d
+	" Apply betty style on c 
+	autocmd BufWritePost *.c :call SpaceBeforeLeftParen()
 endif
 
 " Commands for splitting windows
@@ -119,15 +127,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Auto close
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
 
 " Vertical linex
 let g:indentLine_enabled = 1
